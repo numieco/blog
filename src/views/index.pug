@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  //calls the block named 'content'
+
+  main
+    header
+      div#heading.container
+        h1.title NUMIE BLOG
+        h2.subtitle.
+          A curated collection of self-published articles
+          written by the Numie team for you to enjoy.
+
+      div#featured
+        div#post-images
+          div.featured-post
+            a: div.post-image#first
+                h3.post-caption Why Remote Teams Thrive
+                span.post-date June 15th, 2017
+          div.featured-post
+            a: div.post-image#second
+                h3.post-caption Why Remote Teams Thrive
+                span.post-date June 15th, 2017
+          div.featured-post
+            a: div.post-image#third
+                h3.post-caption Why Remote Teams Thrive
+                span.post-date June 15th, 2017
+
+        div#frame
+          ul.slidee
+            li
+              a: div#slide1
+                  h3.post-caption Why Remote Teams Thrive
+                  span.post-date June 15th, 2017
+            li
+              a: div#slide2
+                  h3.post-caption Why Remote Teams Thrive
+                  span.post-date June 15th, 2017
+            li
+              a: div#slide3
+                  h3.post-caption Why Remote Teams Thrive
+                  span.post-date June 15th, 2017
+            li
+              div#empty
+
+
+        span#featured-text FEATURED POSTS    
+
+    div#category-bar.tabs.is-centered.is-fullwidth
+      ul
+        li
+          a DESIGN
+        li
+          a DEVELOPMENT
+        li
+          a MARKETING
+        li
+          a PEOPLE
+        li
+          a COMPANY
+
+    div#blank
+
+  script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+  script(src="http://darsa.in/sly/js/sly.min.js")
+  script(src='/assets/js/main.js')
