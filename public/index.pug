@@ -4,62 +4,120 @@ block content
   //calls the block named 'content'
 
   main
-    header
-      div#heading.container
-        h1.title NUMIE BLOG
-        h2.subtitle.
-          A curated collection of self-published articles
-          written by the Numie team for you to enjoy.
 
-      div#featured
-        div#post-images
-          div.featured-post
-            a: div.post-image#first
-                h3.post-caption Why Remote Teams Thrive
-                span.post-date June 15th, 2017
-          div.featured-post
-            a: div.post-image#second
-                h3.post-caption Why Remote Teams Thrive
-                span.post-date June 15th, 2017
-          div.featured-post
-            a: div.post-image#third
-                h3.post-caption Why Remote Teams Thrive
-                span.post-date June 15th, 2017
+    header.container
+      h1.title NUMIE BLOG
+      h2.subtitle.
+        A curated collection of self-published articles
+        written by the Numie team for you to enjoy.
 
-        div#frame
-          ul.slidee
-            li
-              a: div#slide1
-                  h3.post-caption Why Remote Teams Thrive
-                  span.post-date June 15th, 2017
-            li
-              a: div#slide2
-                  h3.post-caption Why Remote Teams Thrive
-                  span.post-date June 15th, 2017
-            li
-              a: div#slide3
-                  h3.post-caption Why Remote Teams Thrive
-                  span.post-date June 15th, 2017
-            li
-              div#empty
-
-
-        span#featured-text FEATURED POSTS    
+    section#featured
+      h2.featured-title Numie is Google Certified
+      p.featured-desc.
+        We're a multicultural, internationally based team
+        of designers, developers, and marketers who live
+        and breathe creating products that push the
+        boundaries.
+      a.featured-btn READ POST
 
     div#category-bar.tabs.is-centered.is-fullwidth
       ul
-        li
-          a DESIGN
-        li
-          a DEVELOPMENT
-        li
-          a MARKETING
-        li
-          a PEOPLE
-        li
-          a COMPANY
+        li: a DESIGN
+        li: a DEVELOPMENT
+        li: a MARKETING
+        li: a PEOPLE
+        li: a COMPANY
 
-    div#blank
+    div.posts
+      div.post.columns
+        div.column
+          img(src="" alt="")
+        div.column
+          h2.post-title
+          span.post-category # COMPANY
+          p.post-content.
+            Tofu typewriter microdosing, plaid tumblr palo
+            santo bushwick kale chips gentrify humblebrag
+            hashtag swag. Small batch cred plaid, four loko
+            brooklyn pug raw denim. Small batch cred plaid,
+            four loko brooklyn pug raw denim.
+          a.post-btn READ MORE
+
+      div.post.columns
+        div.column
+          img(src="" alt="")
+        div.column
+          h2.post-title
+          span.post-category # COMPANY
+          p.post-content.
+            Tofu typewriter microdosing, plaid tumblr palo
+            santo bushwick kale chips gentrify humblebrag
+            hashtag swag. Small batch cred plaid, four loko
+            brooklyn pug raw denim. Small batch cred plaid,
+            four loko brooklyn pug raw denim.
+          a.post-btn READ MORE
+
+      div.post.columns
+        div.column
+          img(src="" alt="")
+        div.column
+          h2.post-title
+          span.post-category # COMPANY
+          p.post-content.
+            Tofu typewriter microdosing, plaid tumblr palo
+            santo bushwick kale chips gentrify humblebrag
+            hashtag swag. Small batch cred plaid, four loko
+            brooklyn pug raw denim. Small batch cred plaid,
+            four loko brooklyn pug raw denim.
+          a.post-btn READ MORE
+            
+      div.post.columns
+        div.column
+          img(src="" alt="")
+        div.column
+          h2.post-title
+          span.post-category # COMPANY
+          p.post-content.
+            Tofu typewriter microdosing, plaid tumblr palo
+            santo bushwick kale chips gentrify humblebrag
+            hashtag swag. Small batch cred plaid, four loko
+            brooklyn pug raw denim. Small batch cred plaid,
+            four loko brooklyn pug raw denim.
+          a.post-btn READ MORE
+
+      div.post.columns
+        div.column
+          img(src="" alt="")
+        div.column
+          h2.post-title
+          span.post-category # COMPANY
+          p.post-content.
+            Tofu typewriter microdosing, plaid tumblr palo
+            santo bushwick kale chips gentrify humblebrag
+            hashtag swag. Small batch cred plaid, four loko
+            brooklyn pug raw denim. Small batch cred plaid,
+            four loko brooklyn pug raw denim.
+          a.post-btn READ MORE
+        
+    div#load-more
+      a LOAD MORE <br> +
+
+    footer
+      div#subscribe
+        h3.sub-tagline.
+          Fresh articles of fascinating
+          things delivered to your inbox.
+        input#sub-email(type="email" placeholder="Your email")
+        button.sub-btn SUBSCRIBE
+        small.sub-promise.
+          No spam. No ads. No selfies. We promise.
+
+      div#social
+        h4#numie-title NUMIE STUDIO
+        span#numie-email
+        // SVG HERE
+        a(href="#") GO UP
+
 
   script(src="https://code.jquery.com/jquery-3.2.1.min.js")
   script(src="http://darsa.in/sly/js/sly.min.js")
