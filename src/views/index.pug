@@ -33,9 +33,9 @@ block content
 
     section#posts
       div.post.columns
-        div.column.is-half
-          img(src="../assets/images/forest.jpg" alt="")
-        div#post-container.column.is-half
+        div.img-container.column.is-half
+          img.post-img(src="../assets/images/forest.jpg" alt="")
+        div.post-container.column.is-half.cat-design
           h2.post-title Why Remote Teams Thrive
           span.post-category # COMPANY
           p.post-content.
@@ -44,13 +44,13 @@ block content
             hashtag swag. Small batch cred plaid, four loko
             brooklyn pug raw denim. Small batch cred plaid,
             four loko brooklyn pug raw denim.
-          div.btn-container
-            a.read-btn.post-btn READ MORE
+          a: div.btn-container
+            span.read-btn.cat-design READ MORE
 
       div.post.columns
-        div.column.is-half
-          img(src="../assets/images/fireworks.jpg" alt="")
-        div#post-container.column.is-half
+        div.img-container.column.is-half
+          img.post-img(src="../assets/images/fireworks.jpg" alt="")
+        div.post-container.column.is-half.cat-development
           h2.post-title Why Remote Teams Thrive
           span.post-category # COMPANY
           p.post-content.
@@ -59,13 +59,13 @@ block content
             hashtag swag. Small batch cred plaid, four loko
             brooklyn pug raw denim. Small batch cred plaid,
             four loko brooklyn pug raw denim.
-          div.btn-container
-            a.read-btn.post-btn READ MORE
+          a: div.btn-container
+            span.read-btn.cat-development READ MORE
 
       div.post.columns
-        div.column.is-half
-          img(src="../assets/images/watch.jpg" alt="")
-        div#post-container.column.is-half
+        div.img-container.column.is-half
+          img.post-img(src="../assets/images/watch.jpg" alt="")
+        div.post-container.column.is-half.cat-marketing
           h2.post-title Why Remote Teams Thrive
           span.post-category # COMPANY
           p.post-content.
@@ -74,13 +74,13 @@ block content
             hashtag swag. Small batch cred plaid, four loko
             brooklyn pug raw denim. Small batch cred plaid,
             four loko brooklyn pug raw denim.
-          div.btn-container
-            a.read-btn.post-btn READ MORE
+          a: div.btn-container
+            span.read-btn.cat-marketing READ MORE
             
       div.post.columns
-        div.column.is-half
-          img(src="../assets/images/fireworks.jpg" alt="")
-        div#post-container.column.is-half
+        div.img-container.column.is-half
+          img.post-img(src="../assets/images/fireworks.jpg" alt="")
+        div.post-container.column.is-half.cat-people
           h2.post-title Why Remote Teams Thrive
           span.post-category # COMPANY
           p.post-content.
@@ -89,13 +89,13 @@ block content
             hashtag swag. Small batch cred plaid, four loko
             brooklyn pug raw denim. Small batch cred plaid,
             four loko brooklyn pug raw denim.
-          div.btn-container
-            a.read-btn.post-btn READ MORE
+          a: div.btn-container
+            span.read-btn.cat-people READ MORE
 
       div.post.columns
-        div.column.is-half
-          img(src="../assets/images/mountains.jpg" alt="")
-        div#post-container.column.is-half
+        div.img-container.column.is-half
+          img.post-img(src="../assets/images/mountains.jpg" alt="")
+        div.post-container.column.is-half.cat-company
           h2.post-title Why Remote Teams Thrive
           span.post-category # COMPANY
           p.post-content.
@@ -104,31 +104,33 @@ block content
             hashtag swag. Small batch cred plaid, four loko
             brooklyn pug raw denim. Small batch cred plaid,
             four loko brooklyn pug raw denim.
-          div.btn-container
-            a.read-btn.post-btn READ MORE
+          a: div.btn-container
+            span.read-btn.cat-company READ MORE
         
-    div#load-more
-      a LOAD MORE <br> +
+    a: div#load-more
+      span MORE <br> +
 
-    footer.footer
-      div#subscribe
+    footer.footer.columns
+      div#chevron
+
+      div#subscribe.column
         h3.sub-tagline.
           Fresh articles of fascinating
           things delivered to your inbox.
-        form#sub-btn.box.field
-          p.control
+        form#sub-btn.box.field.columns
+          p.control.column.is-9-tablet
             input.input(type="email" placeholder="Your email")
-          button.button.is-white(type="submit") SUBSCRIBE
-        small.sub-promise
+          button.button.is-white.column(type="submit") SUBSCRIBE
+        small#sub-promise
           No spam. No ads. No selfies. We promise.
 
       hr
 
-      div#social
+      div#social.column
         h4#numie-title NUMIE STUDIO
         span#numie-email yo@numie.co
         // SVG HERE
-        a(href="#") GO UP
+        a#go-up(href="#") GO UP
 
 
   script(src="https://code.jquery.com/jquery-3.2.1.min.js")

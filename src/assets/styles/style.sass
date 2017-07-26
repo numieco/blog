@@ -3,85 +3,106 @@
 @font-face
   font-family: "open-sans"
   src: url("../fonts/OpenSans-Regular.ttf") format("truetype")
-@font-face
-  font-family: "open-sans-bold"
-  src: url("../fonts/OpenSans-Bold.ttf") format("truetype")
   
 // General colors
 $faded-red:  #e0394a
 $dark-grey:  #141516 
 $light-grey: #7f8691
 
-// Category colors
+// post categories
 $purple: #974ef9
 $blue:   #518fdd
 $green:  #5dcf75
 $red:    #e35e6b
 $orange: #f4915b
 
-
 html, body
   height: 100%
   font-family: "open-sans", sans-serif
 
-// General, re-used Components
+
+// Container for 'Read More' & 'Read Post' buttons
+// ---------------------------------------------------------------------
 .btn-container
   position: relative
   overflow: hidden
   display: inline-block
-  padding-bottom: 10px
-  border-bottom: 1px solid blue
+  padding: 10px
+  border-bottom: 1px solid white
 
-.read-btn
-  color: blue
-  transition: all 0.3s ease-in-out
-
-  &:hover
-    color: white
+  &:hover .read-btn
+    color: white !important
     &:after
       top: 0
 
-  &:after
-    content: ""
-    position: absolute
-    z-index: -1
+  // Fills with color from bottom to top on hover
+  .read-btn
+    transition: color 0.3s ease-in-out
+    transition-delay: 0.2s
 
-    width: 100%
-    height: 100%
-    top: 100%
-    left: 0
+    font-size: 12px
+    font-size: calc(0.5rem + 0.45vmax)
+    font-weight: 600
+    letter-spacing: 0.9px
 
-    background-color: green
-    transition: all 0.3s ease-in-out
+    // Rectangle below div. Moved upwards upon hovering container
+    &:after
+      content: ""
+      position: absolute
+      z-index: -1
 
+      width: 100%
+      height: 100%
+      top: 100%
+      left: 0
+
+      background-color: white 
+      transition: top 0.5s cubic-bezier(1, -0.01, 0.18, 1)
+
+
+// Introductory heading text
+// ---------------------------------------------------------------------
 #heading
   padding: 20px
   text-align: center
   color: $dark-grey
 
   .title
-    font-family: "open-sans-bold", sans-seriff
+    font-weight: bold
     font-size: 30px
     font-size: calc(1.25rem + 1.3vmax)
     line-height: 2.6
     letter-spacing: 3.8px
+    margin: 0
+    margin-top: 100px
 
   .subtitle
     opacity: 0.5
+    margin: auto
+    margin-bottom: 40px
+    max-width: 600px
+
     font-size: 14px
     font-size: calc(0.48rem + 0.8vmax)
 
 
+// Featured blog post. Placed above category bar
+// ---------------------------------------------------------------------
 #featured
   // Linear gradient colors
-  $ft-red:   rgba(224, 57, 74, 0.95)
-  $ft-black: rgba(36, 37, 38, 0.95)
+  $feat-red:   rgba(224, 57, 74, 0.95)
+  $feat-black: rgba(36, 37, 38, 0.95)
 
   color: white
-  padding: 20px
   text-align: center
 
-  background-image: linear-gradient(310deg, $ft-red, $ft-black), url("../images/watch.jpg")
+  padding: 1.25rem
+  padding-top:    calc(1rem + 3vmax)
+  padding-bottom: calc(1rem + 0.42vmax)
+  @media screen and (min-width: 768px)
+    padding-bottom: calc(1rem + 3vmax)
+
+  background-image: linear-gradient(310deg, $feat-red, $feat-black), url("../images/watch.jpg")
   background-size: cover
   background-position: center
 
@@ -89,101 +110,246 @@ html, body
     margin-bottom: 20px
     margin-top: 10px
 
-    font-size: 20px
-    font-size: calc(1.1rem + 0.3vmax)
+    font-size: 30px
+    font-size: calc(0.116rem + 2vmax)
     font-weight: 600
     line-height: 1.7
     letter-spacing: 0.5px
 
   .featured-desc
     opacity: 0.8
+    margin: auto
     margin-bottom: 36px
 
-    font-size: 12px
+    width: 40%
+    max-width: 50%
+
+    @media screen and (max-width: 800px)
+      width: 100%
+      max-width: 90%
+
+    font-size: 18px
+    font-size: calc(0.55rem + 0.65vmax)
     line-height: 1.83
 
-  .btn-container
-    border-bottom: 1px solid white
+  .btn-container:hover
+    *
+      color: $dark-grey
+
   .featured-btn
     color: white
     opacity: 0.8
-    width: 24%
-    padding-bottom: 10px
 
     font-size: 12px
     letter-spacing: 0.9px
 
 
+// Sliding bar on mobile sizes. Selection of Post categories
+// ---------------------------------------------------------------------
 #category-bar
-  height: 67px
+  height: 70px
   margin: 0
   overflow-x: hidden
   font-size: 12px
+
   a
     border-bottom: 0
     opacity: 0.5
 
+  @media screen and (min-width: 769px)
+    width: 77.5%
+    margin: auto
 
+
+// Individual Blog Posts
+// ---------------------------------------------------------------------
 #posts
-  #post-container
-    padding: 20px
-    padding-left: 30px
+  position: relative
+  z-index: 1
 
-    .post-title
-      font-size: 16px
-      font-weight: 600
-      &:before
-        content: ""
-        height: 26px
-        width: 4px
-        position: absolute
-        left: 0
+  @media screen and (min-width: 769px)
+    width: 77.5%
+    margin: auto
+    margin-top: 50px
+
+  // Each post category can be given an independant class
+  .post
+    justify-content: center
+
+    .cat-design
+      .post-title, a
+        color: $purple
+      .btn-container
+        border-bottom: 1px solid $purple
+      .read-btn:after
         background-color: $purple
 
-    .post-category
-      opacity: 0.5
-      font-size: 11px
+    .cat-development
+      .post-title, a
+        color: $blue
+      .btn-container
+        border-bottom: 1px solid $blue
+      .read-btn:after
+        background-color: $blue
 
-    .post-content
-      margin-top: 10px
-      margin-bottom: 20px
+    .cat-marketing
+      .post-title, a
+        color: $green
+      .btn-container
+        border-bottom: 1px solid $green
+      .read-btn:after
+        background-color: $green
 
-      font-size: 12px
-      line-height: 1.92
-      color: $light-grey
+    .cat-people
+      .post-title, a
+        color: $red
+      .btn-container
+        border-bottom: 1px solid $red
+      .read-btn:after
+        background-color: $red
 
-    .post-btn
-      font-size: 12px
-      font-weight: 600
-      letter-spacing: 0.9px
+    .cat-company
+      .post-title, a
+        color: $orange
+      .btn-container
+        border-bottom: 1px solid $orange
+      .read-btn:after
+        background-color: $orange
 
+    // Post Thumbnail
+    @media screen and (min-width: 769px)
+      .img-container
+        max-width: 450px
+
+      .post-img
+        border-radius: 5px
+        width: calc(350px + 3vmax)
+        margin-right: 20px
+
+    // Post Content
+    .post-container
+      padding: 20px
+      padding-left: 30px
+
+      @media screen and (min-width: 769px)
+        padding-left: 0
+
+      .post-title
+        font-size: 16px
+        font-size: calc(0.25rem + 1.15vmax)
+        font-weight: 600
+        text-transform: uppercase
+
+        &:before
+          content: ""
+          height: 26px
+          width: 4px
+          position: absolute
+          left: 0
+          background-color: $purple
+
+          @media screen and (min-width: 769px)
+            display: none
+
+      .post-category
+        opacity: 0.5
+        font-size: 11px
+
+      .post-content
+        margin-top: 10px
+        margin-bottom: 20px
+
+        font-size: 12px
+        font-size: calc(0.5rem + 0.45vmax)
+        line-height: 1.92
+        color: $light-grey
+
+
+// Load More Posts
+// ---------------------------------------------------------------------
 #load-more
-  color: $dark-grey
+  position: relative
+  z-index: 1
+  display: flex
+  align-items: center
+  justify-content: center
+
+  margin: auto
   margin-top: 50px
-  text-align: center
-  font-size: 12px
+  border-radius: 50%
+  width: 100px
+  height: 100px
 
-  &:after
-    content: ""
-    background-color: blue
-    border-radius: 20% 20% 53% 20%
-    transform: scaleX(1.155) skewY(-30deg) rotate(-30deg) translateY(-42.3%) skewX(-30deg) scaleY(.866) translateX(24%)
-
-
-footer
   color: white
+  background-color: $dark-grey
+  font-size: 14px
   text-align: center
-  padding-top: 80px
+
+  &:hover
+    background-color:  $light-grey
+
+  span
+    font-size: 18px
+    font-weight: bold
+
+
+// Footer Content
+// ---------------------------------------------------------------------
+.footer
+  color: white
+  padding-top: calc(9rem + 4vmax)
+  text-align: center
+  position: relative
   background-image: linear-gradient(to bottom, #252525, $dark-grey)
 
+  // White Angled Shape Before Footer Content
+  #chevron
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    left: 0
+    top: -35%
+    z-index: 0
+
+    &:before
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 51.5%;
+      background-color: white;
+      transform: skew(0deg, 9deg);
+      border-bottom-right-radius: 5%
+
+    &:after
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 51.5%;
+      background-color: white;
+      transform: skew(0deg, -9deg);
+      border-bottom-left-radius: 5%
+
+  // Top Column
   .sub-tagline
+    width: 40%
     font-size: 18px
+    font-size: calc(0.45rem + 1.15vmax)
+    margin: auto
     margin-bottom: 20px
 
   #sub-btn
     padding: 3px
     padding-bottom: 0
+    margin: auto
     margin-bottom: 20px
+    max-width: 350px
+
+    p
+      padding: 0
 
     input
       color: white
@@ -191,7 +357,7 @@ footer
       font-size: 16px
 
       width: 100%
-      height: 45px
+      height: 100%
       margin: auto
       padding-left: 10px
       border-radius: 5px
@@ -208,6 +374,34 @@ footer
       &:hover
         background-color: #e2e2e2
 
+  #sub-promise
+    opacity: 0.8
+
   hr
     height: 2px
     opacity: 0.05
+
+  // Bottom Column 
+  #numie-title
+    font-weight: bold
+    font-size: 12px
+    font-size: calc(0.5rem + 0.45vmax)
+    letter-spacing: 0.9px
+
+  #numie-email
+    font-size: 14px
+    font-size: calc(0.56rem + 0.45vmax)
+
+  // Slight adjustments on viewport change (Tablet & Desktop)
+  @media screen and (min-width: 769px)
+    #sub-btn
+      padding: 0
+      p
+        padding: 2px
+
+    .sub-tagline
+      text-align: left
+      width: 52%
+
+    #go-up, #numie-title
+      display: none
