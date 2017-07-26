@@ -1,19 +1,41 @@
-jQuery(function ($) {
-
-  $('#frame').sly({
-    slidee: $('.slidee'),
-    horizontal: 1,
-    itemNav: 'basic',
-
-    smart: 1,
-    activateOn: 'click',
-    mouseDragging: 1,
-    touchDragging: 1,
-    releaseSwing: 1,
-
-    elasticBounds: 1,
+$(document).ready(function(){
+  $('#category-bar').slick({
     speed: 300,
-    startAt: 2,
-  }).init();
-
+    slidesToShow: 4,
+    swipeToSlide: true,
+    mobileFirst: true,
+    arrows: false,
+    accessibility: false,
+    centerMode: true,
+    centerPadding: '15%',
+    infinite: false,
+    initialSlide: 2,
+    responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 2,
+          initialSlide: 3
+        }
+      },
+      {
+        breakpoint: 1,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
 });
